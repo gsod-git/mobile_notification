@@ -1,0 +1,80 @@
+{% extends "templates/web.html" %}
+
+{% block style %}
+<style>
+    {% include "templates/includes/sdashboard/sdashboard.css" %}
+</style>
+{% endblock %}
+
+
+
+
+
+{% block page_content %}
+
+  <div class="col-md-3">
+      
+   {% include "templates/pages/testsection1.html" %}
+</div>
+
+    <div class="col-md-9 mainContent">
+
+
+  <div class="tile col-md-4 resource">
+    <div class="header">
+      <div class="center">
+        <div class="count">2</div>
+      </div>
+
+    </div>
+    <div class="body">
+      <div class="title">Available Exams</div>
+    </div>
+  </div>
+
+   <div class="tile col-md-4 quote">
+    <div class="header">
+      <div class="center">
+        <div class="count">3</div>
+      </div>
+    </div>
+    <div class="body">
+      <div class="title">Exams Attended</div>
+    </div>
+  </div>
+
+   <div class="tile col-md-4 invoice">
+    <div class="header">
+      <div class="center">
+        <div class="count">6</div>
+      </div>
+
+    </div>
+    <div class="body">
+      <div class="title">Reward Points Secured</div>
+    </div>
+  </div>
+
+ 
+
+
+
+
+  <div id="chart"  style="padding-top: 20%;"></div>
+
+</div>
+
+
+
+
+{% endblock %}
+
+{% block script %}
+<script src="https://unpkg.com/frappe-charts@1.0.0/dist/frappe-charts.min.iife.js"></script>
+
+<script>{% include "templates/includes/sdashboard/sdashboard.js" %}</script>
+{% endblock %}
+
+{% block sidebar %}{% endblock %}
+
+

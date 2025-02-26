@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include mobile_notification *.css
+recursive-include mobile_notification *.csv
+recursive-include mobile_notification *.html
+recursive-include mobile_notification *.ico
+recursive-include mobile_notification *.js
+recursive-include mobile_notification *.json
+recursive-include mobile_notification *.md
+recursive-include mobile_notification *.png
+recursive-include mobile_notification *.py
+recursive-include mobile_notification *.svg
+recursive-include mobile_notification *.txt
+recursive-exclude mobile_notification *.pyc

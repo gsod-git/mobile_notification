@@ -1,0 +1,31 @@
+
+{% extends "templates/web.html" %}
+
+
+{% block style %} <style> {% include "templates/includes/stest/stest.css" %} </style> {% endblock %}
+
+
+{% block page_content %}
+
+
+
+<div class="row" id="exams" >
+   
+    <div class="col-md-3">
+      
+   {% include "templates/pages/testsection1.html" %}
+</div>
+    <div class="col-md-9 mainContent">
+   {% include "templates/pages/testsection2.html" %}
+</div>
+</div>
+
+
+
+
+
+{% endblock %}
+
+
+
+{% block script %} <script>{% include "templates/includes/stest/stest.js" %}</script> {% endblock %}

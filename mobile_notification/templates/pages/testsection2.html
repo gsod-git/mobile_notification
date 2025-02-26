@@ -1,0 +1,70 @@
+
+         {% for l in exam -%}
+
+<div class="examitem">
+  <span class="ExamTitle">{{l.test_name}}
+
+          {%- if ( l.is_attended == 0  ) -%} 
+            
+    <a href="start_test?Exam={{l.name}}" class="starttest btn btn-success">Start Test</a>
+          {%- endif -%}  
+          {%- if ( l.show == 1  ) -%} 
+            
+    <a href="start_test?Exam={{l.name}}" class="starttest btn btn-success">Start Test</a>
+          {%- endif -%}
+
+
+
+
+          {%- if ( l.is_attended == 1  ) -%} 
+          {%- if ( l.show_result_now == 1  ) -%}
+          
+    <a href="result?Exam={{l.name}}" class="starttest btn btn-primary">View Results</a>
+          {%- endif -%}
+          {%- endif -%}
+
+
+
+
+
+        
+  </span>
+  <div class="ExamInfo">
+    <div class="ExamDates col-md-4 col-sm-6 col-xs-12">
+      <i class="fa fa-clock-o" aria-hidden="true"></i>
+      <span>Duration : {{l.duration}} Mins</span>
+    </div>
+    <div class="ExamDates col-md-4 col-sm-6 col-xs-12">
+      <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+      <span>Degree : {{l.program}}</span>
+    </div>
+    <div class="ExamDates col-md-4 col-sm-6 col-xs-12">
+      <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+      <span>Course : {{l.course}}</span>
+    </div>
+    <div class="ChapterInfo">
+      <span class="chaptertitle">Chapters in this Exam</span>
+    </div>
+    <table class="table table-bordered" style="margin-top: 20px;float: left;margin-left: 15px;margin-right: 15px;width: calc(100% - 30px);">
+      <thead>
+        <tr>
+          <th style="width:40%">Chapter</th>
+          <th>No.Of Questions</th>
+          <th>Question Type</th>
+        </tr>
+      </thead>
+      <tbody>
+               {% for chapter in l.chapter -%}
+              
+        <tr>
+          <td>{{chapter.chapter}}</td>
+          <td>{{chapter.no_of_question}}</td>
+          <td>{{chapter.question_type}}</td>
+        </tr>
+              {%- endfor %}
+          
+      </tbody>
+    </table>
+  </div>
+</div>
+           {%- endfor %}

@@ -1,0 +1,118 @@
+{% extends "templates/web.html" %}
+
+
+{% block style %} <style> {% include "templates/includes/stest/stest.css" %} </style> {% endblock %}
+
+
+
+{% block page_content %}
+
+
+
+<div class="row" id="exams" >
+   
+    <div class="col-md-3">
+      
+   {% include "templates/pages/testsection1.html" %}
+</div>
+
+<div class="col-md-9 mainContent">
+
+
+{% for i in result -%}
+
+{%- if(i.results_published == 1) -%}
+
+
+        <div class="examitem">
+          <span class="ExamTitle">{{i.exam_name}}
+
+          <a href="resultdetail?Result={{i.name}}" class="starttest btn btn-primary">View Results</a>
+
+        </span>
+        <div class="ExamInfo">
+            <div class="ExamDates col-md-4 col-sm-6 col-xs-12">
+                <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+                <span>Date Attended : {{i.date_submitted}} </span>
+            </div>
+
+            <div class="ExamDates col-md-4 col-sm-6 col-xs-12">
+                <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                <span>Degree : {{i.program}}</span>
+            </div>
+            <div class="ExamDates col-md-4 col-sm-6 col-xs-12">
+                <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                <span>Course : {{i.course}}</span>
+            </div>
+
+            <div class="ExamDates col-md-4 col-sm-6 col-xs-12">
+                <i class="fa fa-question" aria-hidden="true"></i>
+                <span>Total Questions : {{i.total_questions}} </span>
+            </div>
+
+            <div class="ExamDates col-md-4 col-sm-6 col-xs-12">
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+                <span>Attended Questions : {{i.attended}} </span>
+            </div>
+            <div class="ExamDates col-md-4 col-sm-6 col-xs-12">
+                <i class="fa fa-check" aria-hidden="true"></i>
+                <span>Correct Answers : {{i.correct_answers}}</span>
+            </div>
+
+            <div class="ExamDates col-md-4 col-sm-6 col-xs-12">
+                <i class="fa fa-times" aria-hidden="true"></i>
+                <span>Wrong Answers : {{i.wrong_answers}} </span>
+            </div>
+
+            <div class="ExamDates col-md-4 col-sm-6 col-xs-12">
+                <i class="fa fa-circle-o" aria-hidden="true"></i>
+                <span>Secured Marks : {{i.secured__marks}} </span>
+            </div>
+            <div class="ExamDates col-md-4 col-sm-6 col-xs-12">
+                <i class="fa fa-percent" aria-hidden="true"></i>
+                <span>Secured Percentage : {{i.secured_percentage}}</span>
+            </div>
+
+        </div>
+       </div>
+
+{%- endif -%}
+
+
+{%- if(i.results_published == 0) -%}
+
+
+
+        <div class="examitem">
+          <span class="ExamTitle">{{i.exam_name}}
+           
+        </span>
+        <div class="ExamInfo">
+            <div class="ExamDates col-md-12 col-sm-6 col-xs-12" style="text-align: center;">
+                <span> Results Yet To Be Published </span>
+            </div>
+        </div>
+       </div>
+
+
+
+{%- endif -%}
+
+{%- endfor %}
+
+
+
+        </div>
+      </div>
+   </div>
+
+
+
+
+</div> 
+</div>
+
+{% endblock %}
+
+
+
